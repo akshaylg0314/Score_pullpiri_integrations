@@ -1,0 +1,14 @@
+nohup: ignoring input
+[2m2025-11-05T04:18:59.372588Z[0m [32m INFO[0m [2mpersistency_service[0m[2m:[0m Starting Pullpiri Persistency Service
+[2m2025-11-05T04:18:59.372628Z[0m [32m INFO[0m [2mpersistency_service[0m[2m:[0m Initializing persistency service with rust_kvs
+[2m2025-11-05T04:18:59.372640Z[0m [32m INFO[0m [2mpersistency_service[0m[2m:[0m Storage files will be created in: "/home/acrn/new_ak/score/pullpiri/src/server"
+[2m2025-11-05T04:18:59.372675Z[0m [32m INFO[0m [2mpersistency_service[0m[2m:[0m Persistency service initialized successfully
+[2m2025-11-05T04:18:59.372767Z[0m [32m INFO[0m [2mpersistency_service[0m[2m:[0m Persistency service listening on 0.0.0.0:47007
+rotating: kvs_0_1.json -> kvs_0_2.json
+rotating: kvs_0_0.json -> kvs_0_1.json
+rotating: kvs_0_1.json -> kvs_0_2.json
+rotating: kvs_0_0.json -> kvs_0_1.json
+rotating: kvs_0_1.json -> kvs_0_2.json
+rotating: kvs_0_0.json -> kvs_0_1.json
+rotating: kvs_0_1.json -> kvs_0_2.json
+rotating: kvs_0_0.json -> kvs_0_1.json

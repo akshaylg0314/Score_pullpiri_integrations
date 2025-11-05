@@ -1,0 +1,10 @@
+cargo:rerun-if-changed=proto/apiserver.proto
+cargo:rerun-if-changed=proto/actioncontroller.proto
+cargo:rerun-if-changed=proto/filtergateway.proto
+cargo:rerun-if-changed=proto/monitoringserver.proto
+cargo:rerun-if-changed=proto/nodeagent.proto
+cargo:rerun-if-changed=proto/policymanager.proto
+cargo:rerun-if-changed=proto/statemanager.proto
+cargo:rerun-if-changed=proto/pharos_service.proto
+cargo:rerun-if-changed=proto/external/timpani/schedinfo.proto
+cargo:rerun-if-changed=proto

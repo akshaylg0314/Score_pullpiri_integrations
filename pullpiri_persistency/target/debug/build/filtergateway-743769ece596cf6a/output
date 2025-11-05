@@ -1,0 +1,57 @@
+cargo:rerun-if-changed=src/vehicle/dds/idl
+cargo:rerun-if-changed=/home/acrn/new_ak/score/pullpiri/src/settings.yaml
+Current working directory: "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway"
+Reading settings from: "/home/acrn/new_ak/score/pullpiri/src/settings.yaml"
+Settings content: # SPDX-License-Identifier: Apache-2.0
+
+yaml_storage: /etc/piccolo/yaml
+piccolo_cloud: http://0.0.0.0:41234
+host:
+  name: HPC
+  ip: 0.0.0.0
+  type: vehicle
+  role: master
+dds:
+  idl_path: src/vehicle/dds/idl
+  domain_id: 100
+  # Removed out_dir - will use Cargo's default OUT_DIR
+
+IDL path from settings (relative): "src/vehicle/dds/idl"
+Domain ID from settings: 100
+IDL directory (absolute): "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl"
+Domain ID: 100
+IDL directory absolute path: "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl"
+Using default OUT_DIR: /home/acrn/new_ak/score/pullpiri/target/debug/build/filtergateway-743769ece596cf6a/out
+
+=== Generating DDS modules ===
+Collecting IDL files using get_idl_files...
+*** get_idl_files is being called for directory: "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl" ***
+Directory contents:
+  - "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/ADASObstacleDetection.idl" (is_file: true)
+  * Found IDL file: ADASObstacleDetection at /home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/ADASObstacleDetection.idl
+  - "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/BodyTrunk.idl" (is_file: true)
+  * Found IDL file: BodyTrunk at /home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/BodyTrunk.idl
+  - "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/BodyLightsHeadLamp.idl" (is_file: true)
+  * Found IDL file: BodyLightsHeadLamp at /home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/BodyLightsHeadLamp.idl
+*** get_idl_files found 3 IDL files ***
+Found 3 IDL files from get_idl_files
+Processing IDL file: "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/ADASObstacleDetection.idl"
+Successfully parsed IDL file: ADASObstacleDetection (struct: ADASObstacleDetectionIsWarning)
+Processing IDL file: "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/BodyTrunk.idl"
+Successfully parsed IDL file: BodyTrunk (struct: BodyTrunkStatus)
+Processing IDL file: "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/BodyLightsHeadLamp.idl"
+Successfully parsed IDL file: BodyLightsHeadLamp (struct: BodyLightsHeadLampStatus)
+Successfully generated DDS modules in /home/acrn/new_ak/score/pullpiri/target/debug/build/filtergateway-743769ece596cf6a/out
+dds_modules.rs size: 265 bytes
+Files in output directory:
+  "/home/acrn/new_ak/score/pullpiri/target/debug/build/filtergateway-743769ece596cf6a/out/BodyTrunk.rs"
+  "/home/acrn/new_ak/score/pullpiri/target/debug/build/filtergateway-743769ece596cf6a/out/ADASObstacleDetection.rs"
+  "/home/acrn/new_ak/score/pullpiri/target/debug/build/filtergateway-743769ece596cf6a/out/dds_modules.rs"
+  "/home/acrn/new_ak/score/pullpiri/target/debug/build/filtergateway-743769ece596cf6a/out/dds_types.rs"
+  "/home/acrn/new_ak/score/pullpiri/target/debug/build/filtergateway-743769ece596cf6a/out/BodyLightsHeadLamp.rs"
+Successfully generated DDS modules
+Found IDL file: "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/ADASObstacleDetection.idl"
+Found IDL file: "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/BodyTrunk.idl"
+Found IDL file: "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/BodyLightsHeadLamp.idl"
+Found 3 IDL files in directory: "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl"
+cargo:rustc-cfg=feature="dds_type_registry_exists"

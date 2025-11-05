@@ -1,0 +1,20 @@
+[workspace]
+resolver = "2"
+members = [
+    "src/rust/rust_kvs",
+    "src/rust/rust_kvs_tool",
+    "tests/rust_test_scenarios",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+
+
+[workspace.dependencies]
+rust_kvs = { path = "src/rust/rust_kvs" }
+rust_kvs_tool = { path = "src/rust/rust_kvs_tool" }
+
+adler32 = "1.2.0"
+tinyjson = "2.5.1"
+pico-args = "0.5"

@@ -1,0 +1,9 @@
+DDS Build Information
+--------------------
+IDL Directory: "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl"
+Output Directory: /home/acrn/new_ak/score/pullpiri/target/debug/build/filtergateway-743769ece596cf6a/out
+Domain ID: 100
+Found IDL Files: 3
+  - "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/ADASObstacleDetection.idl"
+  - "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/BodyTrunk.idl"
+  - "/home/acrn/new_ak/score/pullpiri/src/player/filtergateway/src/vehicle/dds/idl/BodyLightsHeadLamp.idl"
