@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Scenario
+metadata:
+  name: emergency_driving
+spec:
+  condition:
+    express: eq
+    value: "\"emergency\""
+    operands:
+      type: DDS
+      name: driving_mode
+      value: CarData
+  action: launch
+  target: emergency_driving
+---
+apiVersion: v1
+kind: Package
+metadata:
+  label: null
+  name: emergency_driving
+spec:
+  pattern:
+    - type: plain
+  models:
+    - name: emergency_driving
+      node: acrn-NUC11TNHi5
+      resources:
+        volume:
+        network:
+---
+apiVersion: v1
+kind: Model
+metadata:
+  name: emergency_driving
+  annotations:
+    io.piccolo.annotations.package-type: emergency_driving
+    io.piccolo.annotations.package-name: emergency_driving
+    io.piccolo.annotations.package-network: default
+  labels:
+    app: emergency_driving
+spec:
+  hostNetwork: true
+  containers:
+    - name: emergency_driving
+      image: quay.io/podman/hello:latest
+  terminationGracePeriodSeconds: 0
+  restartPolicy: Always
