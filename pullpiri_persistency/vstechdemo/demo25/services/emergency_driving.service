@@ -1,0 +1,13 @@
+[Unit]
+Description=Start Emergency Driving DDS App
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/acrn/new_ak/demo25/scripts/start_emergency.sh
+ExecStop=/home/acrn/new_ak/demo25/scripts/stop_emergency.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
