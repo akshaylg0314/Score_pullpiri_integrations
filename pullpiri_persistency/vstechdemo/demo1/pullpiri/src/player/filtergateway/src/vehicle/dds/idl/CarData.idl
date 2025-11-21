@@ -1,0 +1,8 @@
+struct CarData {
+	// type: sensor
+	// description: Car driving mode data
+	// values: "active" (autonomous), "manual", "emergency"
+	// Used for scenario handling and mode switching
+
+	string driving_mode;
+};

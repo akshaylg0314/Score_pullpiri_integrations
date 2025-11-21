@@ -1,0 +1,8 @@
+[package]
+name = "idl2rs"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[dependencies]
+dust_dds_gen = "0.11.0"

@@ -1,0 +1,13 @@
+[Unit]
+Description=Start Infotainment App
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/acrn/new_ak/demo25/scripts/start_infotainment.sh
+ExecStop=/home/acrn/new_ak/demo25/scripts/stop_infotainment.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+{
+  "current_mode_thresholds": {
+    "obstacle_distance_min": 5.0,
+    "collision_risk_max": 90.0,
+    "vehicle_speed_max": 120.0,
+    "vehicle_speed_min": 0.0,
+    "brake_force_max": 100.0,
+    "steering_angle_max": 45.0
+  },
+  "stability": {
+    "mode_change_cooldown_ms": 15000
+  }
+}

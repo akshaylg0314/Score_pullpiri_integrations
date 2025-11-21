@@ -1,0 +1,18 @@
+{
+  "current_mode_thresholds": {
+    "obstacle_distance_min": 5.0,
+    "collision_risk_max": 90.0,
+    "vehicle_speed_max": 120.0,
+    "vehicle_speed_min": 10.0,
+    "brake_force_max": 85.0,
+    "steering_angle_max": 30.0
+  },
+  "stability": {
+    "mode_change_cooldown_ms": 30000
+  },
+  "metadata": {
+    "mode": "autonomous",
+    "timestamp": "2025-11-20T11:47:59.543563",
+    "container_managed": true
+  }
+}

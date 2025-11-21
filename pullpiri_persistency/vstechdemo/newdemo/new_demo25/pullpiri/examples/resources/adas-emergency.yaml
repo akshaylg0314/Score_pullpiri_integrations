@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Scenario
+metadata:
+  name: emergency_driving
+spec:
+  condition:
+    express: eq
+    value: "\"emergency\""
+    operands:
+      type: DDS
+      name: driving_mode
+      value: CarMode
+  action: launch
+  target: emergency_driving
+---
+apiVersion: v1
+kind: Package
+metadata:
+  label: null
+  name: emergency_driving
+spec:
+  pattern:
+    - type: plain
+  models:
+    - name: emergency_driving
+      node: localhost
+      resources:
+        volume:
+        network:
+---
+apiVersion: v1
+kind: Model
+metadata:
+  name: emergency_driving
+  annotations:
+    io.piccolo.annotations.package-type: emergency_driving
+    io.piccolo.annotations.package-name: emergency_driving
+    io.piccolo.annotations.package-network: default
+  labels:
+    app: emergency_driving
+spec:
+  hostNetwork: true
+  containers:
+    - name: emergency-threshold-manager
+      image: threshold-emergency:latest
+      command: ["python3", "/app/threshold_manager_emergency.py", "--obstacle", "2.0", "--risk", "95.0", "--brake", "100.0", "--speed-max", "60.0", "--speed-min", "0.0", "--steering", "45.0"]
+      volumeMounts:
+        - name: thresholds-volume
+          mountPath: /data
+  volumes:
+    - name: thresholds-volume
+      hostPath:
+        path: /root/pre_demo/executables
+        type: Directory
+  terminationGracePeriodSeconds: 0
+  restartPolicy: Never
