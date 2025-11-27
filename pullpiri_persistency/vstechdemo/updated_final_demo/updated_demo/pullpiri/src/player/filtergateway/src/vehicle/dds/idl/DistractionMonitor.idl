@@ -1,0 +1,3 @@
+struct DistractionMonitor {
+    long dms_val;
+};

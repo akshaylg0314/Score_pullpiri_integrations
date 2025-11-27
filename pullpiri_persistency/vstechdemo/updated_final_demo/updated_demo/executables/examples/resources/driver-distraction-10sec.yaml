@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: Scenario
+metadata:
+  name: driver_distraction_10sec
+spec:
+  condition:
+    express: gt
+    value: "10"
+    operands:
+      type: DDS
+      name: dms_val
+      value: DistractionMonitor
+  action: update
+  target: driver_distraction_10sec
+---
+apiVersion: v1
+kind: Package
+metadata:
+  label: null
+  name: driver_distraction_10sec
+spec:
+  pattern:
+    - type: plain
+  models:
+    - name: driver_distraction_10sec
+      node: acrn-NUC11TNHi5
+      resources:
+        volume:                    
+        network:                  
+---
+apiVersion: v1
+kind: Model
+metadata:
+  name: driver_distraction_10sec
+  annotations:
+    io.piccolo.annotations.package-type: driver-distraction-dds-sender
+    io.piccolo.annotations.package-name: driver_distraction_10sec
+    io.piccolo.annotations.package-network: default
+  labels:
+    app: driver-distraction-dds-sender
+spec:
+  hostNetwork: true
+  containers:
+    - name: file-writer-10sec
+      image: file-message-writer:latest
+      env:
+        - name: MESSAGE_TYPE
+          value: "driver_distraction_10sec_emergency"
+        - name: SCENARIO_NAME
+          value: "driver_distraction_10sec"
+        - name: MESSAGE_CONTENT
+          value: "Emergency: Moving Car to Safe Area"
+        - name: SEVERITY
+          value: "critical"
+        - name: THRESHOLD_VALUE
+          value: "10.0"
+      volumeMounts:
+        - name: message-data
+          mountPath: /data
+  volumes:
+    - name: message-data
+      hostPath:
+        path: /tmp/driver_distraction
+        type: DirectoryOrCreate
+  terminationGracePeriodSeconds: 10
+  restartPolicy: Never

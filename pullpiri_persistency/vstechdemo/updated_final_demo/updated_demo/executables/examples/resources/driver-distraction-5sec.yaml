@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: Scenario
+metadata:
+  name: driver_distraction_5sec
+spec:
+  condition:
+    express: gt
+    value: "5"
+    operands:
+      type: DDS
+      name: dms_val
+      value: DistractionMonitor
+  action: update
+  target: driver_distraction_5sec
+---
+apiVersion: v1
+kind: Package
+metadata:
+  label: null
+  name: driver_distraction_5sec
+spec:
+  pattern:
+    - type: plain
+  models:
+    - name: driver_distraction_5sec
+      node: acrn-NUC11TNHi5
+      resources:
+        volume:                    
+        network:                  
+---
+apiVersion: v1
+kind: Model
+metadata:
+  name: driver_distraction_5sec
+  annotations:
+    io.piccolo.annotations.package-type: driver-distraction-dds-sender
+    io.piccolo.annotations.package-name: driver_distraction_5sec
+    io.piccolo.annotations.package-network: default
+  labels:
+    app: driver-distraction-dds-sender
+spec:
+  hostNetwork: true
+  containers:
+    - name: file-writer-5sec
+      image: file-message-writer:latest
+      env:
+        - name: MESSAGE_TYPE
+          value: "driver_distraction_5sec_alert"
+        - name: SCENARIO_NAME
+          value: "driver_distraction_5sec"
+        - name: MESSAGE_CONTENT
+          value: "Keep Your Eyes On the Road Ahead"
+        - name: SEVERITY
+          value: "warning"
+        - name: THRESHOLD_VALUE
+          value: "5.0"
+      volumeMounts:
+        - name: message-data
+          mountPath: /data
+  volumes:
+    - name: message-data
+      hostPath:
+        path: /tmp/driver_distraction
+        type: DirectoryOrCreate
+  terminationGracePeriodSeconds: 10
+  restartPolicy: Never
